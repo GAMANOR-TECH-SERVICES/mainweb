@@ -1,0 +1,117 @@
+/* ========= GLOBAL ========= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:  rgba(128, 128, 128, 0.516);
+  color: #ffffff;
+}
+
+/* ========= TOP BAR ========= */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #050608;
+  color: #ffffff;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* small GMN.png beside title */
+.topbar-logo {
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.topbar-title {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ========= MENU BUTTON (3 lines) ========= */
+.menu-button {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: #10131a;
+  border: 1px solid #222738;
+  text-decoration: none;
+}
+
+.menu-icon {
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  display: block;
+}
+
+/* ========= SCROLLING TICKER ========= */
+.ticker {
+  height: 32px;
+  overflow: hidden;
+  background: #050608;
+  border-top: 1px solid #10131a;
+  border-bottom: 1px solid #10131a;
+  color: #00e0ff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: ticker-continuous 25s linear infinite;
+}
+
+@keyframes ticker-continuous {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+
+
+/* ========= HERO WITH BIG GMN.png ========= */
+.home-main {
+  min-height: calc(100vh - 64px - 26px); /* topbar + ticker */
+  padding: 40px 24px 32px;
+  text-align: center;
+  background:
+    radial-gradient(circle at center,
+      #ececec 0%,
+      #e0e0e0 45%,
+      #cccccc 100%);
+  color: #000000;
+}
+
+.hero {
+  max-width: 420px;
+  margin: 40px auto 0;
+}
+
+.hero-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.hero-tagline {
+  margin: 0;
+  font-size: 1.05rem;
+}

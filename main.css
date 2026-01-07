@@ -1,0 +1,353 @@
+/* ========= GLOBAL ========= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background:  #1a1a1a;
+  color: #ffffff;
+}
+
+/* ========= TOP BAR ========= */
+.menu-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #050608;
+  color: #ffffff;
+}
+
+.menu-heading {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+.menu-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-link {
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ========= HAMBURGER BUTTON ========= */
+.sidebar-toggle {
+  width: 28px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sidebar-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sidebar-toggle.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.sidebar-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.sidebar-toggle.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========= LAYOUT ========= */
+.menu-page-body {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.content-main {
+  flex: 1;
+  padding: 24px;
+}
+
+/* ========= SIDEBAR - ULTRA TRANSPARENT ========= */
+.sidebar {
+  width: 220px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding: 24px 16px;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  position: fixed;
+  right: 0;
+  top: 56px;
+  height: calc(100vh - 56px);
+  z-index: 100;
+}
+
+.sidebar.sidebar-open {
+  transform: translateX(0);
+}
+
+
+
+.sidebar.sidebar-open { 
+  transform: translateX(0);
+  background: rgba(5, 6, 8, 0.15) !important;   /* Slightly more visible when open */
+}
+
+.sidebar-title { font-weight: 600; margin-bottom: 12px; }
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar li { margin-bottom: 8px; }
+.sidebar a { 
+  color: #cfd3ff; 
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========= DIM PAGE WHEN FOCUS OPEN ========= */
+.page-dimmed::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+
+/* ========= ABOUT US ========= */
+.about-section {
+  position: relative;
+  padding: 60px 24px 40px;
+  color: #ffffff;
+  height: 400px;
+  background-image: url("au.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ========= SERVICES ========= */
+.services-section {
+  padding: 40px 24px 0;
+}
+
+.services-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-content: start;
+}
+
+/* ========= SERVICE CARDS ========= */
+.service-card {
+  background: linear-gradient(rgba(16,19,26,0.92), rgba(16,19,26,0.92)), #10131a;
+  border: 1px solid #222738;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.service-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #c2c7e2;
+  line-height: 1.5;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #00e0ff;
+  box-shadow: 0 12px 32px rgba(0, 224, 255, 0.15);
+}
+
+/* ========= FOCUS STRIPS - FULL WIDTH IMAGES ========= */
+.service-focus-strip {
+  position: relative;
+  z-index: 30;
+  background-size: 140% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  padding: 120px 24px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  left: 0;
+}
+
+.service-focus-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  left: 0;
+}
+
+.service-focus-inner {
+  max-width: 1200px;
+}
+
+.service-focus-inner h3 {
+  margin: 0 0 16px 0;
+  font-size: 2.2rem;
+}
+
+.service-focus-inner p {
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.focus-close {
+  margin-top: 28px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.service-focus-strip.hidden {
+  display: none;
+}
+
+/* ========= INDIVIDUAL BACKGROUND IMAGES ========= */
+#web-focus       { background-image: url("web_dev.png"); }
+#cloud-focus     { background-image: url("cloud.png"); }
+#mobile-focus    { background-image: url("mobile.png"); }
+#fulltime-focus  { background-image: url("ft.png"); }
+#internship-focus { background-image: url("intern.png"); }
+
+/* ========= JOBS ========= */
+#jobs {
+  padding: 24px 24px 0;
+}
+
+#jobs h2 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+}
+
+#jobs p {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+/* ========= CONTACT ========= */
+#contact {
+  padding: 24px 24px 40px;
+}
+
+#contact h2 {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+}
+
+#contact p {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+  .content-main { padding: 16px; }
+
+  .about-section {
+    padding: 40px 16px 30px;
+    height: 400px;
+  }
+
+  .services-section { padding: 32px 16px 0; }
+
+  #jobs    { padding: 24px 16px 0; }
+  #contact { padding: 24px 16px 40px; }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card { padding: 20px; }
+
+  .service-focus-strip {
+    min-height: 500px;
+    padding: 80px 16px;
+    background-size: 150% auto;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+
+  .service-focus-inner {
+    max-width: 90vw;
+  }
+
+  .service-focus-inner h3 {
+    font-size: 1.8rem;
+  }
+
+  .service-focus-inner p {
+    font-size: 1.05rem;
+  }
+}
